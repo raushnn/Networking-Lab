@@ -1,0 +1,30 @@
+Computer Network Lab (CS 3272)
+Assignment 1: Networking basic commands
+Time: 2 weeks
+The aim of this assignment is to make you familiar with few network commands and tools.
+
+1. Read the man pages of ifconfig, ping, traceroute, arp, dig, nslookup,
+and netstat and write their utilities in brief.
+
+2. Find the IP and hardware addresses of your machine using ifconfig command.
+
+3. Use “ping <AnyURL>” command and find out
+    i. the average RTT(round trip time).
+    ii. the %packet loss.
+    iii. size of packet that is sent to <AnyURL> server.
+    iv. size of packet that is received by your machine.
+    
+4. Use “dig <AnyURL>” command and find out
+    i. the IP address of <AnyURL>.
+    ii. the IP addresses of local DNS servers of IIEST.
+    
+5. Use “traceroute <AnyURL>” and find out
+    i. number of hops in between your machine and <AnyURL> server.
+    ii. the IP address of your network gateway of your subnet.
+    
+6. Use “arp” command to find out the MAC address of the device that is performing as your
+network gateway.
+
+7. Use nslookup <AnyURL> command and find out the IP address of <AnyURL>.Use nslookup <IP address> command and perform reverse domain lookup.
+
+8. Use netstat command and find out the active connections of your machine.
