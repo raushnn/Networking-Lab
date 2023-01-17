@@ -1,3 +1,12 @@
+/*
+Question 1:
+
+Develop a simple TCP Server Client application where the Client sends text
+messages to the Server in a user-defined know port (of your choice). On reception of
+that message, the Server forwards the same message to the Client. Both Server and
+Client print the message.
+*/
+
 #include <stdio.h>
 #include <string.h>
 #include <sys/types.h>
