@@ -11,7 +11,6 @@
 void* read_data(void* arg){
     char buffer[255];
     int sockfd= *((int*)arg);
-    
     while (1)
     {
         bzero(buffer, 255);
