@@ -28,7 +28,6 @@ void read_data(void* arg){
 
 void write_data(int newsockfd){
     char buffer[255];
-    // printf("%d", newsockfd);
     while (1)
     {
         bzero(buffer, 255);
