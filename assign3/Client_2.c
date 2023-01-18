@@ -47,16 +47,16 @@ int main(int argc, char *argv[]){
     server= gethostbyname(argv[1]);
     portno= atoi(argv[2]);
     
-
+    
     sockfd= socket(AF_INET, SOCK_STREAM, 0);
     
     bzero((char *)&serv_addr, sizeof(serv_addr));
 
     serv_addr.sin_family= AF_INET;
+    serv_addr.sin_port= htons(portno);
 
     //coping the content of server into serv_addr byte by byte
     bcopy((char *) server->h_addr,(char *)&serv_addr.sin_addr.s_addr, server->h_length );
-    serv_addr.sin_port= htons(portno);
 
     connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
 
