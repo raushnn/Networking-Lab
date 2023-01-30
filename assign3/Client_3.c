@@ -18,7 +18,7 @@ void* read_data(void* arg){
         int n= recv(sockfd, buffer, 255, 0);
         if (n==0){
             exit(0);}
-        printf("Server: %s\n", buffer);
+        printf("%s\n", buffer);
         int i= strncmp("Bye", buffer, 3);
         if (i==0)
         exit(0);
