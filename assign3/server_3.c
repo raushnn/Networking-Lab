@@ -17,9 +17,19 @@ void read_data(void* arg){
     {
         bzero(buffer, 255);
         int n= recv(newsockfd, buffer, 255, 0);
+        
         if (n==0){
             exit(0);}
+        int len= strlen(buffer);
+        printf("%c\n", buffer[0]);
         printf("Client %d: %s\n",newsockfd, buffer);
+        printf("abc");
+        char str[2];
+        str[0]=buffer[0];
+        str[1]= '\0';
+        int fd= atoi(str);
+        int l= send(fd, buffer, strlen(buffer), 0);
+        printf("%d",l);
         int i= strncmp("Bye", buffer, 3);
         if (i==0)
         close(newsockfd);
@@ -29,19 +39,19 @@ void read_data(void* arg){
 }
 
 
-void write_data(void* arg){
-    int* newsockfd= (int*)arg;
-    char buffer[255];
-    while (1)
-    {
-        bzero(buffer, 255);
-        fgets(buffer, 255, stdin);
-        for (int i=1; i<=sz; i++){
-            int n= send(newsockfd[i], buffer, strlen(buffer), 0);
-        }
+// void write_data(void* arg){
+//     int* newsockfd= (int*)arg;
+//     char buffer[255];
+//     while (1)
+//     {
+//         bzero(buffer, 255);
+//         fgets(buffer, 255, stdin);
+//         for (int i=1; i<=sz; i++){
+//             int n= send(newsockfd[i], buffer, strlen(buffer), 0);
+//         }
         
-    }
-}
+//     }
+// }
 
 
 int main(int argc, char *argv[]){
@@ -76,11 +86,11 @@ int main(int argc, char *argv[]){
     int acc_cli[1000];
     listen(socketfd, 5);
     int i=1;
-    pthread_create(&th[0], NULL, write_data, acc_cli);
+    // pthread_create(&th[0], NULL, write_data, acc_cli);
     while (1){
         clilen= sizeof(cli_addr);
         int newsockfd= accept(socketfd,(struct sockaddr *) &cli_addr , &clilen);
-        if (newsockfd>-1 && i<9000){
+        if (newsockfd>-1 && i<900){
                 acc_cli[i]= newsockfd;
                 sz++;
                 pthread_create(&th[i], NULL, read_data, &acc_cli[i]);
